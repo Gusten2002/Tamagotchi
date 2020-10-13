@@ -35,7 +35,7 @@ namespace Tamagotchi
         {
             if (words.Count >= 1)
             {
-                int whatWord = generator.Next();
+                int whatWord = generator.Next(words.Count);
 
                 string sayWord = words[whatWord];
 

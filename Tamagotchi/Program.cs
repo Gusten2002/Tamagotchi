@@ -26,20 +26,47 @@ namespace Tamagotchi
                 Console.WriteLine("please choosewhat you want to do with " + tamagotchi.name +
                 "\n[Teach]" +
                 "\n[Feed]" +
-                "\n[Speak]");
+                "\n[Speak]" +
+                "\n[Nothing]" );
                 // + "\n[Kill it!]"
-                // + "\n[add another]"
+                // + "\n[add another]");
 
                 string answer = Console.ReadLine();
+
+                while(answer.ToLower() != "teach" && answer.ToLower() != "feed" && answer.ToLower() != "speak" && answer.ToLower() != "nothing")
+                {
+                    Console.WriteLine("Only accepting any of the four choices");
+                    answer = Console.ReadLine();
+                }
 
                 if(answer.ToLower() == "teach")
                 {
                     Console.WriteLine("Word to teach");
-                    tamagotchi.word = Console.ReadLine();
+                    string learnWord = Console.ReadLine();
                     
-                    tamagotchi.Teach();
+                    tamagotchi.Teach(learnWord);
                 }
 
+                else if(answer.ToLower() == "feed")
+                {
+                    Console.WriteLine("You feed your tamagotchi");
+                    tamagotchi.Feed();
+                }
+
+                else if(answer.ToLower() == "speak")
+                {
+                    tamagotchi.Hi();
+                }
+
+                if(answer.ToLower() == "nothing")
+                {
+                    Console.WriteLine("You did nothing.");
+                }
+
+                    tamagotchi.Tick();
+                    
+                    sleep();
+                    Console.Clear();
             }
 
             Console.ReadLine();
@@ -47,7 +74,7 @@ namespace Tamagotchi
 
         public static void sleep()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1500);
         }
     }
 }
