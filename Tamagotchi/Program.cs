@@ -81,8 +81,9 @@ namespace Tamagotchi
 
                     playMore = Console.ReadLine().ToLower();
                 }
-                
+
                 Console.ReadLine();
+                //if( carryOn != yes) {Shutdown();}
             }
 
         }
